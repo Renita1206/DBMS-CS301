@@ -1,0 +1,40 @@
+#CREATE DATABASE RAILWAY_SYSTEM;
+
+USE RAILWAY_SYSTEM;
+
+
+
+CREATE TABLE TRAIN_331(Train_No int NOT NULL UNIQUE, T_Name varchar(255), T_Type varchar(255) NOT NULL, Destination varchar(255), Arrival varchar(255), Availability boolean, PRIMARY KEY(Train_No));
+
+CREATE TABLE COMPARTMENT_331(Train_No int NOT NULL, Type int, Capacity int, Availability boolean DEFAULT 1, CompartmentNo int NOT NULL UNIQUE,PRIMARY KEY(CompartmentNo), FOREIGN KEY(Train_No) REFERENCES TRAIN_331(Train_No));
+
+CREATE TABLE ROUTE_331(Train_No int NOT NULL, FromNo int NOT NULL UNIQUE, ToNo int NOT NULL UNIQUE, FromName varchar(50), ToName varchar(50), Distance int,PRIMARY KEY(FromNo, ToNo), FOREIGN KEY(Train_No) REFERENCES TRAIN_331(Train_No));
+
+CREATE TABLE USER_331(UserID int NOT NULL UNIQUE, Age int, Fname varchar(50), LName varchar(50), DOB date, U_Type varchar(50), Pincode int, StreetNo int, PRIMARY KEY(UserID));
+
+CREATE TABLE CHECK_331(Train_No int NOT NULL, UserID int NOT NULL, DateTimeStamp timestamp, FOREIGN KEY(Train_No) REFERENCES TRAIN_331(Train_No), FOREIGN KEY(UserID) REFERENCES User_331(UserID)  );
+
+CREATE TABLE PHONE_331(UserID int NOT NULL, PhoneNo int NOT NULL UNIQUE, PRIMARY KEY(PhoneNo), FOREIGN KEY(UserID) REFERENCES User_331(UserID));
+
+CREATE TABLE TICKET_331(UserID int NOT NULL, PNR int NOT NULL UNIQUE, TravelDate date, DepartureTime time, ArrivalTime time, Departure datetime, Arrival datetime, TrainNo int,TrainType int, CompartmentType int, CompartmentNo int, PRIMARY KEY(PNR),FOREIGN KEY(UserID) REFERENCES User_331(UserID));
+
+CREATE TABLE PASSENGER_331(PNR int NOT NULL, Name varchar(255), SeatNo int NOT NULL UNIQUE, Age int, PRIMARY KEY(SeatNo), FOREIGN KEY(PNR) REFERENCES TICKET_331(PNR));
+
+CREATE TABLE PAYMENT_INFO_331(TransacID int NOT NULL UNIQUE, Bank varchar(50), CardNo int, Price int, PNR int NOT NULL, PRIMARY KEY(TransacID),FOREIGN KEY(PNR) REFERENCES TICKET_331(PNR));
+
+CREATE TABLE FARE_TABLE_331(TrainType varchar(10), CompartmentType int, FarePerKm int, PRIMARY KEY(TrainType, CompartmentType));
+
+
+
+ALTER TABLE PASSENGER_331 ADD CONSTRAINT age_check CHECK(AGE>5);
+
+ALTER TABLE fare_table_331 RENAME TO FARE_TABLE_331;
+
+CREATE VIEW Routes_331 AS SELECT FromNo, FromName, ToNo, ToName FROM ROUTE_331 WHERE Train_No=1;
+
+CREATE TABLE TASK8a_331(num int, name varchar(50));
+CREATE TABLE TASK8b_331(num int, name varchar(50));
+
+DROP TABLE TASK8a_331;
+
+TRUNCATE TABLE TASK8b_331;
