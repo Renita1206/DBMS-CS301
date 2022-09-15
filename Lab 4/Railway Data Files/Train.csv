@@ -1,0 +1,7 @@
+﻿Train_No,Name,Train_Type,Destination,Source,Availability
+62621,BEN-CHE Shatabdi,Superfast,Chennai,Bengaluru,yes
+62620,CHE-BEN Shatabdi,Superfast,Bengaluru,Chennai ,No
+25261,Managaluru Mail,Mail,Mangaluru,Chennai ,Yes
+25260,Chennai Mail,Mail,Chennai,Mangaluru,Yes
+58451,BEN-MAN Express,Fast,Mangaluru,Bengaluru,yes
+58450,MAN-BEN Express,Fast,Bengaluru,Mangaluru,yes
