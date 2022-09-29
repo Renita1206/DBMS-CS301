@@ -215,4 +215,3 @@ INSERT INTO works_with VALUES(105, 406, 130000);
 
 
 -	Clients who are schools
- 
