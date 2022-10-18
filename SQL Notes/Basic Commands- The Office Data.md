@@ -127,7 +127,7 @@ INSERT INTO works_with VALUES(105, 406, 130000);
  ![image](https://user-images.githubusercontent.com/66276711/196480829-0469eef4-8d6f-4988-8d59-ed96af282878.png)
 
 
-- Find all clients
+- Find all clients  
  ![image](https://user-images.githubusercontent.com/66276711/196480882-5b59fa20-5cf9-4294-8b1f-b5785f943e23.png)  
  
 - Find all employees ordered by salary
