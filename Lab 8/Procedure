@@ -1,0 +1,19 @@
+-- Renita Kurian
+-- Lab 8 - Functions and Procedures
+
+-- Write a stored procedure to calculate the age of the customer when the date of birth is given. 
+-- Update the column named age in the customer table.*/
+
+DELIMITER $$
+CREATE procedure update_age(IN U_ID varchar(30), IN DOB DATE)
+BEGIN
+DECLARE new_age int; 
+SET new_age = FLOOR(DATEDIFF(CURRENT_DATE,DOB)/365);
+UPDATE User_331 set Age = new_age where UserID = U_ID;
+END;$$
+DELIMITER ;
+
+SELECT * from USER_331 WHERE UserID='ADM_001' ;
+CALL update_age('ADM_001','1989-04-14');
+
+SELECT * from USER_331;

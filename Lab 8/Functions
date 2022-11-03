@@ -1,0 +1,30 @@
+-- Renita Kurian - PES1UG20CS331
+-- Lab 8 - Functions and Procedures
+
+-- Function to find the number of tickets booked by a customer. 
+--If no of tickets is more than 3 for the current month then display error message as cannot purchase tickets current limit is over
+
+DELIMITER $$
+CREATE FUNCTION number_of_tickets(U_ID varchar(255))
+RETURNS VARCHAR(50)
+DETERMINISTIC
+BEGIN
+	DECLARE result VARCHAR(50);
+    DECLARE ticket_count int;
+    
+    SELECT count(PNR) into ticket_count
+	FROM Ticket_331
+	WHERE UserID = U_ID AND 
+    MONTH(TravelDate) = MONTH(sysdate()) AND 
+	YEAR(TravelDate) = YEAR(sysdate());
+    
+	IF ticket_count > 3 THEN
+		SET result = 'purchase limit exceeded”';
+	ELSE
+		SET result = 'tickets may be purchased';
+	END IF;
+		RETURN result;
+END; $$
+DELIMITER ;
+
+SELECT UserID, number_of_tickets(UserID) FROM User_331;
