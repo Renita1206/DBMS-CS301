@@ -8,4 +8,5 @@ CS301, Fifth Semester
 - Week 5 : Join  
 - Week 6 : Aggregate Functions  
 - Week 7 : Set Operations  
-- Week 8 : Functions and Procedure  
+- Week 8 : Functions and Procedure
+- Week 9 : Triggers  
