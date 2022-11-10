@@ -10,3 +10,4 @@ CS301, Fifth Semester
 - Week 7 : Set Operations  
 - Week 8 : Functions and Procedure
 - Week 9 : Triggers  
+- Week 10: Python Application with Streamlit  
