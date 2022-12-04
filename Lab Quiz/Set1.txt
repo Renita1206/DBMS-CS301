@@ -1,0 +1,6 @@
+SET1:
+1.Write a trigger to prevent the insertion of a patient belonging to the locality ‘Devanahalli’ into the Patient table suggesting that this area is not serviceable.
+
+2. List the name and IDs of the patients who did not get the exact blood group as their own. Also display the blood group of blood unit and their actual blood group.
+
+3. Write a function to set the health status of a donor. If the donor has some associated disease set health status to ‘Fair’, otherwise to ‘Good.

@@ -1,0 +1,1 @@
+select patient_name, patient_id, P.blood_group, R.blood_group from (Patient_331 as P Natural JOIN Patient_Request_331 as X)JOIN Requests_331 as R ON R.request_id = X.request_id where R.blood_group!=P.blood_group;
